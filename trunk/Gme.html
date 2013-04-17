@@ -1,0 +1,287 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+<title>
+
+Matheus_Marcelo_Malkai
+
+</title>
+
+<script src="js/Background.js"></script>
+<script src="js/LEVEL_1.js"></script>
+<script src="js/cena_creditos.js"></script>
+<script src="js/cena.js"></script>
+<script src="js/Introducao.js"></script>
+<script src="js/botao.js"></script>
+<script src="js/Instrucao.js"></script>
+
+</head>
+
+
+<body>
+
+<center>
+<!--canvas principal onde acontece o jogo-->
+<canvas width=" 595" height="841" id="main" style="border:1px solid #000000;"></canvas>
+</center>
+<script>
+
+var canvas = document.getElementById("main");
+var screen = canvas.getContext("2d");
+
+var SCREENWIDTH =  595;
+var SCREENHEIGHT = 841;
+
+var paused = false;
+
+var Introducao = new Introducao();
+
+var creditos = new cena_creditos();
+
+var Instrucao = new Instrucao();
+
+var LEVEL_1 = new LEVEL_1();
+
+var SCENES = { Introducao: 0, creditos: 1, LEVEL_1: 2, Instrucao:3 }
+
+var currentScene = Introducao;
+
+load();
+
+function load()
+{	
+console.log("load");
+
+if((true))//to do...
+{	
+console.log("carreguei");
+
+loop();
+}
+else
+{
+console.log("nao carreguei");
+
+setTimeout(load, 30 );
+}
+}
+
+function loop()
+{
+//console.log("loop");
+
+//o loop do jogo faz chamadas para update e draw
+
+update();
+
+draw();
+
+//o loop do jogo se chama a cada 30 ms, +- 30 FPS (1/30) ~ 33 fps
+setTimeout(loop, 1000/60 );
+
+}	
+
+function update()
+{	
+switch(currentScene)
+{
+case Introducao:
+{
+Introducao.update();	
+}
+break;
+
+case cena_creditos:
+{
+creditos.update();
+}
+break;
+case Instrucao:
+{
+Instrucao.update();
+}
+break;
+
+case LEVEL_1:
+{
+LEVEL_1.update();
+}
+break;
+}
+
+}
+
+function draw()		
+		
+		{
+			clear();
+
+			switch(currentScene)
+		{
+					case Introducao:
+				{
+ 						Introducao.draw();
+				}
+						break;
+					case cena_creditos:
+				{
+					creditos.draw();
+				}
+						break;
+
+			case Instrucao:
+			{
+			Instrucao.draw();
+			}
+			break;
+			
+			case LEVEL_1:
+			{
+			LEVEL_1.draw();
+			}
+			break;
+
+			
+		}
+
+		}
+
+function clear()
+{
+screen.clearRect(0,0,595,841);
+}
+
+
+window.addEventListener('keydown', key_down, true);
+window.addEventListener('keyup', key_up, true);
+window.addEventListener('mousemove', mouse_move, true);
+window.addEventListener('mouseup', mouse_up, true);
+window.addEventListener('mousedown', mouse_down, true);
+
+function key_down(key)
+{
+switch(currentScene)
+{
+case Introducao:
+{
+Introducao.key_down(key);
+}
+break;
+
+case cena_creditos:
+{
+creditos.key_down(key);
+}
+break;
+
+case Instrucao:
+{
+Instrucao.key_down(key);
+}
+
+break;
+case LEVEL_1:
+{
+LEVEL_1.key_down(key);
+}
+break;
+}
+
+
+}
+
+function key_up(key)
+{
+switch(currentScene)
+{
+case  Introducao:
+{
+Introducao.key_up(key);
+}
+break;
+
+case cena_creditos:
+{
+creditos.key_up(key);
+}
+break;
+
+case Instrucao:
+{
+Instrucao.key_up(key);
+}
+break;
+
+case LEVEL_1:
+{
+LEVEL_1.key_up(key);
+}
+break;
+}	
+}
+
+function mouse_move(mouse)
+{
+
+}
+
+function mouse_up(mouse)
+{
+
+}
+
+function mouse_down(mouse)
+
+{
+switch(currentScene)
+{
+case  Introducao:
+{
+	console.log("mous x " + mouse.x, "mouse y " + mouse.y)	
+Introducao.mouse_down(mouse);
+}
+break;
+case cena_creditos:
+{
+creditos.mouse_down(mouse);
+}
+break;
+
+case Instrucao:
+{
+Instrucao.mouse_down(mouse);
+}
+break;
+
+case LEVEL_1:
+{
+LEVEL_1.mouse_down(mouse);
+}
+break;
+}
+}
+
+function Collide(x1, y1, w1, h1, x2, y2, w2, h2)
+{	
+if((x1+w1<x2)//se rect1 esquerda rect2
+||(x1>x2+w2)//se rect1 direita rect2
+||(y1+h1<y2)//se rect1 acima rect2
+||(y1>y2+h2))//se rect1 abaixo rect2
+{
+return false;//nao colidiu
+}
+else
+{
+return true;//colidiu
+}
+}
+
+
+</script>
+
+</body>
+
+</html>

@@ -44,13 +44,6 @@ function Introducao()
    	
    };
    
-   this.key_down=function(key)
-   {
-   	console.log("INTRO keyCode " + key.keyCode );
-   	
-   	currentScene = SCENES.LEVEL01;
-   };
-   
    this.mouse_up=function(mouse)
    {
    	

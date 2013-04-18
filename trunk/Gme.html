@@ -25,15 +25,15 @@ Matheus_Marcelo_Malkai
 
 <center>
 <!--canvas principal onde acontece o jogo-->
-<canvas width=" 595" height="841" id="main" style="border:1px solid #000000;"></canvas>
+<canvas width=" 841" height="595" id="main" style="border:1px solid #000000;"></canvas>
 </center>
 <script>
 
 var canvas = document.getElementById("main");
 var screen = canvas.getContext("2d");
 
-var SCREENWIDTH =  595;
-var SCREENHEIGHT = 841;
+var SCREENWIDTH =  841;
+var SCREENHEIGHT = 595;
 
 var paused = false;
 
@@ -151,7 +151,7 @@ function draw()
 
 function clear()
 {
-screen.clearRect(0,0,595,841);
+screen.clearRect(0,0,841,595);
 }
 
 

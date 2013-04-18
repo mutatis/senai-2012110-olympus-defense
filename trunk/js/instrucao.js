@@ -2,7 +2,7 @@ function Instrucao()
 {
 
 //file, size_x, size_y, pos_x, pos_y
-this.Back = new Button("img/Back.png", 99, 37, 180, 700);
+this.Back = new Button("img/Back.png", 399, 41, 240, 490);
 
    
    this.update=function()

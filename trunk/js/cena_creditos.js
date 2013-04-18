@@ -1,7 +1,7 @@
 function cena_creditos()
 {
-
-	this.Back = new Button("img/Back.png", 99, 37, 180, 700);
+	this.background = new fundo("img/credit.png", 595, 841);
+	this.Back = new Button("img/Back.png", 399, 41, 140, 490);
 
    this.update=function()
    {
@@ -11,11 +11,11 @@ function cena_creditos()
    this.draw=function()
    {
    	
-   	
+   	this.background.draw();
    	this.Back.draw();
    	screen.font = "20px Comic Sans MS";
         screen.fillStyle="#000000";
-        screen.fillText("Jogo produzido por Malkai, Raphael , Gabriel e Francisco", 20, 20);
+        screen.fillText("", 20, 20);
    	
    
    

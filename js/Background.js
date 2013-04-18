@@ -12,8 +12,8 @@ loaded = true;
 console.log("Carregado fundo" + loaded);
 };
 
-   this.size_x = 595;
-   this.size_y = 841;
+   this.size_x = 841;
+   this.size_y = 595;
    this.position_x = 0;
    this.position_y = 0;
    

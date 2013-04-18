@@ -1,11 +1,13 @@
 function Introducao()
 {
-	this.botao_start = new Button("img/Start.png", 159, 40, 150, 650);
-        this.botao_creditos = new Button("img/Creditos.png", 159, 40, 150, 700);
-        this.botao_instrucao = new Button("img/Instrucao.png", 159, 40, 150, 750)
+	this.background = new fundo("img/fundo.png", 595, 841); 
+	this.botao_start = new Button("img/Start.png", 339, 41, 240, 390);
+        this.botao_creditos = new Button("img/Creditos.png", 339, 41, 240, 440);
+        this.botao_instrucao = new Button("img/Instrucao.png", 339, 41, 240, 490)
    
    this.update=function()
    {
+   		
    	    this.botao_start.update(); 		
    		this.botao_creditos.update(); 
   	     this.botao_instrucao.update();
@@ -17,6 +19,7 @@ function Introducao()
         screen.fillStyle="#000000";
         screen.fillText("Introducao", 20, 20);
 		
+		this.background.draw();
 		this.botao_start.draw(); 		
    		this.botao_creditos.draw(); 
         this.botao_instrucao.draw();

@@ -1,4 +1,4 @@
-function cena_creditos()
+function Creditos()
 {
 	this.background = new fundo("img/credit.png", 595, 841);
 	this.Back = new Button("img/Back.png", 399, 41, 140, 490);
@@ -26,7 +26,7 @@ function cena_creditos()
     {
     	console.log("CREDITS mouse X " + mouse.x + " mouse Y " + mouse.y );
     	
-    	currentScene = Introducao;
+    	currentScene = SCENES.INTRODUCAO;
     };
     
 

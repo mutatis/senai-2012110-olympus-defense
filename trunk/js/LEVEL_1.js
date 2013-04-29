@@ -1,10 +1,10 @@
-function LEVEL_1()
+function Level_1()
 {
-	this.nuvem = new Nuvem("img/png/sprite_nuven.png", 120, 75, (SCREENWIDTH-94)/2, 0);
+	this.nuvem = new Nuvem("img/sprite_nuven.png", 210, 76, (SCREENWIDTH-210)/2, 0);
 
    this.update=function()
    {
- this.nuvem.update();
+ 	this.nuvem.update();
    };
    
    this.draw=function()

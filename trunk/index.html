@@ -6,7 +6,7 @@
 
 <title>
 
-Matheus_Marcelo_Malkai
+Francisco,Raphael,gabriel e Rafael
 
 </title>
 
@@ -39,17 +39,17 @@ var SCREENHEIGHT = 595;
 
 var paused = false;
 
-var Introducao = new Introducao();
+var introducao = new Introducao();
 
-var creditos = new cena_creditos();
+var creditos = new Creditos();
 
-var Instrucao = new Instrucao();
+var instrucao = new Instrucao();
 
-var LEVEL_1 = new LEVEL_1();
+var level_1 = new Level_1();
 
-var SCENES = { Introducao: 0, creditos: 1, LEVEL_1: 2, Instrucao:3 }
+var SCENES = { INTRODUCAO: 0, CREDITOS: 1, LEVEL_1: 2, INSTRUCAO:3 }
 
-var currentScene = Introducao;
+var currentScene = SCENES.INTRODUCAO;
 
 load();
 
@@ -73,7 +73,7 @@ setTimeout(load, 30 );
 
 function loop()
 {
-//console.log("loop");
+	//console.log("loop");
 
 //o loop do jogo faz chamadas para update e draw
 
@@ -86,63 +86,65 @@ setTimeout(loop, 1000/60 );
 
 }	
 
-function update()
+		function update()
 {	
-switch(currentScene)
-{
-case Introducao:
-{
-Introducao.update();	
-}
-break;
+		switch(currentScene)
+	{
+		
+	case SCENES.INTRODUCAO:
+		{
+			introducao.update();	
+		}
+			break;
+			
 
-case cena_creditos:
-{
-creditos.update();
-}
-break;
-case Instrucao:
-{
-Instrucao.update();
-}
-break;
+	case SCENES.CREDITOS:
+		{
+			creditos.update();
+		}
+		break;
+		
+	case SCENES.INSTRUCAO:
+		{
+			instrucao.update();
+		}
+		break;
 
-case LEVEL_1:
-{
-LEVEL_1.update();
-}
-break;
-}
+	case SCENES.LEVEL_1:
+		{
+		level_1.update();
+		}
+		break;
+	}
 
 }
 
 function draw()		
-		
-		{
+{
 			clear();
 
 			switch(currentScene)
-		{
-					case Introducao:
+			{
+				case SCENES.INTRODUCAO:
 				{
- 						Introducao.draw();
+ 					introducao.draw();
 				}
-						break;
-					case cena_creditos:
+				break;
+				case SCENES.CREDITOS:
 				{
 					creditos.draw();
 				}
-						break;
+				break;
 
-			case Instrucao:
+			case SCENES.INSTRUCAO:
 			{
-			Instrucao.draw();
+				instrucao.draw();
 			}
 			break;
 			
-			case LEVEL_1:
+			case SCENES.LEVEL_1:
 			{
-			LEVEL_1.draw();
+			level_1.draw();
 			}
 			break;
 
@@ -167,27 +169,27 @@ function key_down(key)
 {
 switch(currentScene)
 {
-case Introducao:
+case SCENES.INTRODUCAO:
 {
-Introducao.key_down(key);
+	introducao.key_down(key);
 }
 break;
 
-case cena_creditos:
+case SCENES.CREDITOS:
 {
-creditos.key_down(key);
+	creditos.key_down(key);
 }
 break;
 
-case Instrucao:
+case SCENES.INSTRUCAO:
 {
-Instrucao.key_down(key);
+	instrucao.key_down(key);
 }
 
 break;
-case LEVEL_1:
+case SCENES.LEVEL_1:
 {
-LEVEL_1.key_down(key);
+level_1.key_down(key);
 }
 break;
 }
@@ -199,27 +201,27 @@ function key_up(key)
 {
 switch(currentScene)
 {
-case  Introducao:
+case  SCENES.INTRODUCAO:
 {
-Introducao.key_up(key);
+introducao.key_up(key);
 }
 break;
 
-case cena_creditos:
+case SCENES.CREDITOS:
 {
 creditos.key_up(key);
 }
 break;
 
-case Instrucao:
+case SCENES.INSTRUCAO:
 {
-Instrucao.key_up(key);
+instrucao.key_up(key);
 }
 break;
 
-case LEVEL_1:
+case SCENES.LEVEL_1:
 {
-LEVEL_1.key_up(key);
+level_1.key_up(key);
 }
 break;
 }	
@@ -240,27 +242,27 @@ function mouse_down(mouse)
 {
 switch(currentScene)
 {
-case  Introducao:
+case  SCENES.INTRODUCAO:
 {
 	console.log("mous x " + mouse.x, "mouse y " + mouse.y)	
-Introducao.mouse_down(mouse);
+	introducao.mouse_down(mouse);
 }
 break;
-case cena_creditos:
+case SCENES.CREDITOS:
 {
 creditos.mouse_down(mouse);
 }
 break;
 
-case Instrucao:
+case SCENES.INSTRUCAO:
 {
-Instrucao.mouse_down(mouse);
+instrucao.mouse_down(mouse);
 }
 break;
 
-case LEVEL_1:
+case SCENES.LEVEL_1:
 {
-LEVEL_1.mouse_down(mouse);
+level_1.mouse_down(mouse);
 }
 break;
 }

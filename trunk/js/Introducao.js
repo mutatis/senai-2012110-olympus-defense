@@ -37,12 +37,12 @@ function Introducao()
    	
    	 if(this.botao_creditos.clicked(mouse))
    	{
-   	 currentScene = cena_creditos;	
+   	 currentScene = SCENES.CREDITOS;	
    	}
    	
    	if(this.botao_instrucao.clicked(mouse))
    	{
-   	 currentScene = Instrucao;	
+   	 currentScene = SCENES.INSTRUCAO;	
    	}
    	
    };

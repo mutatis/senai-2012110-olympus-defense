@@ -1,7 +1,7 @@
-function Nuvem=(file, size_x, size_y, position_x, position_y)
+function Nuvem(file, size_x, size_y, position_x, position_y)
 {
 	this.image = new Image();
-	this.image.src=file;
+	this.image.src= file;
 	
 	this.visible = true;
 		

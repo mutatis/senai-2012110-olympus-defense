@@ -53,7 +53,7 @@ function Button(file, size_x, size_y, pos_x, pos_y)
   this.clicked = function(mouse)
 	{//abre botao clicado
 
-	if(Collide(mouse.x-851, mouse.y-11 , 1, 1, this.position_x, this.position_y, this.size_x, this.size_y))
+	if(Collide(mouse.x-358, mouse.y-11 , 1, 1, this.position_x, this.position_y, this.size_x, this.size_y))
 	{
 	return true;
 	}

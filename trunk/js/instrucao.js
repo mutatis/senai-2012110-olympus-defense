@@ -29,7 +29,7 @@ this.Back = new Button("img/Back.png", 399, 41, 240, 490);
    	{
    	console.log("cena creditos mouse X " + mouse.x + " mouse Y " + mouse.y );
    	
-   	currentScene = Introducao;
+   	currentScene = SCENES.INTRODUCAO;
    	};
    
   }

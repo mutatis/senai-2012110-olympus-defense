@@ -97,7 +97,7 @@ function Nuvem(file, size_x, size_y, position_x, position_y)
 			}
 		}
 		
-		console.log("QTS TIROS "+this.shoots.length);
+		//console.log("QTS TIROS "+this.shoots.length);
 		
 		//array.splice(index,howmany
     };

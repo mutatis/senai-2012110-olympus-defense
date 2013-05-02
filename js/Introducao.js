@@ -49,7 +49,7 @@ function Introducao()
    
    this.key_down=function(key)
    {
-   	console.log("INTRO keyCode " + key.keyCode );
+   	console.log("INTROi keyCode " + key.keyCode );
    	
    	
    };

@@ -19,6 +19,8 @@ Francisco,Raphael,gabriel e Rafael
 <script src="js/Instrucao.js"></script>
 <script src="js/nuvem.js"></script>
 <script src="js/shoot.js"></script>
+<!--RENOMEAR PRA ASTEROID.js-->
+<script src="js/shoot-old.js"></script>
 
 </head>
 
@@ -188,7 +190,7 @@ case SCENES.INSTRUCAO:
 break;
 case SCENES.LEVEL_1:
 {
-level_1.key_down(key);
+	level_1.key_down(key);
 }
 break;
 }
@@ -200,27 +202,28 @@ function key_up(key)
 {
 switch(currentScene)
 {
-case  SCENES.INTRODUCAO:
+	
+	case  SCENES.INTRODUCAO:
 {
-introducao.key_up(key);
+	introducao.key_up(key);
 }
 break;
 
 case SCENES.CREDITOS:
 {
-creditos.key_up(key);
+	creditos.key_up(key);
 }
 break;
 
 case SCENES.INSTRUCAO:
 {
-instrucao.key_up(key);
+	instrucao.key_up(key);
 }
 break;
 
 case SCENES.LEVEL_1:
 {
-level_1.key_up(key);
+	level_1.key_up(key);
 }
 break;
 }	
@@ -243,7 +246,7 @@ switch(currentScene)
 {
 case  SCENES.INTRODUCAO:
 {
-	console.log("mous x " + mouse.x, "mouse y " + mouse.y)	
+	//console.log("mous x " + mouse.x, "mouse y " + mouse.y)	
 	introducao.mouse_down(mouse);
 }
 break;

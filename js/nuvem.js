@@ -54,6 +54,14 @@ function Nuvem(file, size_x, size_y, position_x, position_y)
     
     this.down = false;
     
+    this.space_pressed = false;
+    
+    this.space_released = true;
+    
+    this.space_pressing = false;
+    
+    this.shoots = new Array();
+    
     this.update=function()
     {    	    	
     	//this.Move();
@@ -68,6 +76,30 @@ function Nuvem(file, size_x, size_y, position_x, position_y)
 		
 		//http://stackoverflow.com/questions/2677671/how-do-i-rotate-a-single-object-on-an-html-5-canvas
 		//how to draw a turned image
+		
+		if(this.space_pressing)
+		{
+			this.shoots.push(new Shoot(this.position_x_dst, this.position_y_dst, this.rotation));
+		}
+		
+		//atualizando os tiros (mover, colidir...)
+		for(var i = 0; i < this.shoots.length; i++)
+		{
+			this.shoots[i].update();
+		}
+		
+		//removendo os tiros nao visiveis da lista
+		for(var i = 0; i < this.shoots.length; i++)
+		{
+			if(!this.shoots[i].visible)
+			{
+				this.shoots.splice(i, 1);
+			}
+		}
+		
+		console.log("QTS TIROS "+this.shoots.length);
+		
+		//array.splice(index,howmany
     };
     
     this.Move=function()
@@ -96,11 +128,21 @@ function Nuvem(file, size_x, size_y, position_x, position_y)
 	{
 		if(this.up)
 		{
-			this.velocity_x += Math.cos(this.degreesToRadians(this.rotation)) * this.speed;
-			this.velocity_y += Math.sin(this.degreesToRadians(this.rotation)) * this.speed;			
+			if((Math.sqrt(this.velocity_x*this.velocity_x+this.velocity_y*this.velocity_y) < 20))
+			{
+				this.velocity_x += Math.cos(this.degreesToRadians(this.rotation)) * this.speed;
+				this.velocity_y += Math.sin(this.degreesToRadians(this.rotation)) * this.speed;
+			}
+						
+		}
+		if(this.down)
+		{
+			this.velocity_x -= Math.cos(this.degreesToRadians(this.rotation)) * (this.speed/4);
+			this.velocity_y -= Math.sin(this.degreesToRadians(this.rotation)) * (this.speed/4);			
 		}
 		else
 		{
+			//to do refactor, calculo o tempo todo
 			this.velocity_x *= this.friction;
 			this.velocity_y *= this.friction;			
 		}
@@ -117,7 +159,7 @@ function Nuvem(file, size_x, size_y, position_x, position_y)
 			this.rotation -= this.rotateSpeed;
 		}
 		
-		console.log(this.rotation);
+		//console.log(this.rotation);
 	}
 	
 	this.AutoMove=function()
@@ -197,11 +239,11 @@ function Nuvem(file, size_x, size_y, position_x, position_y)
     {			
 		screen.save();
 		 
-		screen.translate(this.position_x_dst,this.position_y_dst);
+		screen.translate(this.position_x_dst+this.size_x_dst/2,this.position_y_dst+this.size_y_dst/2);
 		
-		screen.rotate(this.rotation);
+		screen.rotate(this.degreesToRadians(this.rotation));
 
-		screen.translate(-this.position_x_dst,-this.position_y_dst); 
+		screen.translate(-(this.position_x_dst+this.size_x_dst/2),-(this.position_y_dst+this.size_y_dst/2)); 
 		
 		if(this.visible)
         screen.drawImage(this.image,
@@ -234,6 +276,11 @@ function Nuvem(file, size_x, size_y, position_x, position_y)
 		
 		this.last_draw_time = Date.now();
 		
+		for(var i = 0; i < this.shoots.length; i++)
+		{
+			this.shoots[i].draw();
+		}
+		
 		
     };
     
@@ -256,6 +303,11 @@ function Nuvem(file, size_x, size_y, position_x, position_y)
     		{
     			this.down = true;
     		}
+    		
+    		if(key.keyCode == 32)
+    		{
+    			this.space_pressing = true;
+    		}
     	
     };
     
@@ -277,6 +329,11 @@ function Nuvem(file, size_x, size_y, position_x, position_y)
     		else if(key.keyCode == 40)
     		{
     			this.down = false;
+    		}
+    		    		
+    		if(key.keyCode == 32)
+    		{
+    			this.space_pressing = false;
     		}
     	  	
     };  	

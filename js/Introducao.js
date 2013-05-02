@@ -14,8 +14,8 @@ function Introducao()
    };
    
    this.draw=function()
-      {
-   	screen.font = "20px Comic Sans MS";
+   {
+   		screen.font = "20px Comic Sans MS";
         screen.fillStyle="#000000";
         screen.fillText("Introducao", 20, 20);
 		
@@ -51,7 +51,7 @@ function Introducao()
    {
    	console.log("INTRO keyCode " + key.keyCode );
    	
-   	currentScene = SCENES.LEVEL01;
+   	
    };
    
    this.mouse_up=function(mouse)

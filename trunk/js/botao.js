@@ -15,8 +15,8 @@ function Button(file, size_x, size_y, pos_x, pos_y)
    
    this.draw=function()
    {
-   	if(this.visible)
-   	screen.drawImage(this.img, this.position_x, this.position_y);
+		if(this.visible)
+		screen.drawImage(this.img, this.position_x, this.position_y);
    };
    
    this.mouse_down=function(mouse)
@@ -24,29 +24,23 @@ function Button(file, size_x, size_y, pos_x, pos_y)
    	
    };
    
-   
    this.key_down=function(key)
    {
-   	   
    	
    };
-   
        
    this.mouse_up=function(mouse)
    {
-   	
    	
    };
    
    this.key_up=function(key)
    {
    	
-   	
    };
    
    this.mouse_move=function(mouse)
    {
-   	
    	
    };
    
@@ -54,14 +48,12 @@ function Button(file, size_x, size_y, pos_x, pos_y)
 	{//abre botao clicado
 
 	if(Collide(mouse.x-10, mouse.y-12 , 1, 1, this.position_x, this.position_y, this.size_x, this.size_y))
-	{
-	return true;
-	}
-	
-	return false;
+		{
+			return true;
+		}
+		
+		return false;
 	}	
-	
-	
 }
 
 

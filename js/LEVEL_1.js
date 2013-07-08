@@ -3,18 +3,18 @@ function Level_1()
 	this.nuvem = new Nuvem("img/nuvem.png", 124, 76,
 	 (SCREENWIDTH-210)/2, 0);
 	 
-	this.AsteroidManager = new Asteroid("img/asteroide_grande1.png", 220, 220);
+	//this.AsteroidManager = new Asteroid("img/asteroide_grande1.png", 220, 220);
 
 	this.update=function()
 	{
 		this.nuvem.update();
- 		this.AsteroidManager.update();	
+ 		//this.AsteroidManager.update();	
 	};
    
 	this.draw=function()
 	{    	
    		this.nuvem.draw();
- 		this.AsteroidManager.draw();	
+ 		//this.AsteroidManager.draw();	
 	};
        
 	this.mouse_down=function(mouse)

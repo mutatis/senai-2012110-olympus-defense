@@ -79,7 +79,7 @@ function Nuvem(file, size_x, size_y, position_x, position_y)
 		
 		if(this.space_pressing)
 		{
-			this.shoots.push(new Shoot(this.position_x_dst, this.position_y_dst, this.rotation));
+			//this.shoots.push(new Shoot(this.position_x_dst, this.position_y_dst, this.rotation));
 		}
 		
 		//atualizando os tiros (mover, colidir...)
